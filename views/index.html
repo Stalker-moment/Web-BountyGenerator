@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Bounty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      position: relative;
+      transition: background-color 1s, color 1s;
+    }
+
+    body.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
+    h1, label, button[type="submit"] {
+      color: #333;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode label,
+    body.dark-mode button[type="submit"] {
+      color: #fff;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      align-items: center;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      align-items: center;
+    }
+
+    input[type="file"] {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      align-items: center;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+        /* Gaya form saat mode gelap aktif */
+        body.dark-mode form {
+      background: linear-gradient(to bottom, #444, #222); /* Latar belakang gradasi */
+      color: #fff; /* Warna teks putih */
+      border: 1px solid #555; /* Garis tepi */
+    }
+    
+    /* Gaya input teks saat mode gelap aktif */
+    body.dark-mode input[type="text"] {
+      background-color: #333; /* Latar belakang input */
+      color: #fff; /* Warna teks putih */
+      border: 1px solid #555; /* Garis tepi */
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .imgbutton1 {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #777;
+      margin-right: 40px;
+    }
+
+    .imgbutton2 {
+      position: absolute;
+      top: 2px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #777;
+      margin-right: 40px;
+    }
+
+        /* Gaya logo GitHub saat mode gelap aktif */
+    body.dark-mode .imgbutton2 img {
+      filter: invert(1); /* Balikkan warna ikon menjadi putih */
+    }
+
+    /* Gaya logo Instagram saat mode gelap aktif */
+    body.dark-mode .imgbutton1 img {
+      filter: invert(1); /* Balikkan warna ikon menjadi putih */
+    }
+
+    #dark-mode-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Template Bounty Generator</h1>
+  <form action="/generate" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <br><br>
+    <label for="name">Masukkan Nama :</label>
+    <input type="text" name="name" id="name" maxlength="50">
+    <br><br>
+    <button type="submit">Generate</button>
+  </form>
+  <div id="example-result">
+    <h2>Example Result:</h2>
+    <img src="https://i.imgur.com/qqs0uN0.jpg" alt="Example" style="width: 600px; height: 800px;">
+  </div>
+  <div>
+    <a class="imgbutton1" href="https://instagram.com/tierkunn_" target="_blank"><img src="https://i.imgur.com/UrBCrmm.png" alt="Instagram Logo" style="width: 25px; height: 25px;"></a>
+    <a class="imgbutton2" href="https://github.com/stalker-moment" target="_blank"><img src="https://i.imgur.com/2jcyDBW.png" alt="GitHub Logo" style="width: 40px; height: 40px;"></a>
+  </div>
+  <footer>
+    <p>Made by Tier & Panji</p>
+  </footer>
+  <button id="dark-mode-button" onclick="toggleDarkMode()">Dark Mode</button>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      const darkModeButton = document.getElementById("dark-mode-button");
+
+      // Toggling mode gelap atau terang pada elemen body
+      body.classList.toggle("dark-mode");
+
+      // Mengganti teks tombol sesuai dengan mode saat ini
+      if (body.classList.contains("dark-mode")) {
+        darkModeButton.textContent = "Light Mode";
+        darkModeButton.style.backgroundColor = "#fff"; // Ubah latar belakang menjadi putih
+        darkModeButton.style.color = "#000"; // Ubah warna teks menjadi hitam
+      } else {
+        darkModeButton.textContent = "Dark Mode";
+        darkModeButton.style.backgroundColor = "#333"; // Kembalikan latar belakang ke warna gelap
+        darkModeButton.style.color = "#fff"; // Kembalikan warna teks ke putih
+      }
+    }
+  </script>
+</body>
+</html>
